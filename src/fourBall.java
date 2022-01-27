@@ -6,6 +6,11 @@ public class fourBall extends PApplet {
     public static final int HEIGHT = 600;
     public static final int bgcolor = 255;
     public static final int distanceDivisor = 6;
+    public static final int speed_1 = 1;
+    public static final int speed_2 = 2;
+    public static final int speed_3 = 3;
+    public static final int speed_4 = 4;
+    public static final int RADIUS1 = 10;
     int x1 =0;
     int x2 =0;
     int x3 =0;
@@ -22,30 +27,25 @@ public class fourBall extends PApplet {
     }
 
     @Override
-    public void setup() {
-
-    }
-
-    @Override
     public void draw() {
+//        uncomment following line to remove trails left by balls
 //        getBackground();
-        int radius = 10;
-        getEllipse(radius,1,x1);
-        getEllipse(radius,2,x2);
-        getEllipse(radius,3,x3);
-        getEllipse(radius,4,x4);
+        getEllipse(1,x1);
+        getEllipse(2,x2);
+        getEllipse(3,x3);
+        getEllipse(4,x4);
         changeDistance();
     }
 
-    private void getEllipse(int radius, int distance, int displacementVector) {
-        ellipse(0 + displacementVector,(HEIGHT*distance)/ distanceDivisor, radius, radius);
+    private void getEllipse(int distance, int displacementVector) {
+        ellipse(displacementVector,(HEIGHT*distance)/ distanceDivisor, RADIUS1, RADIUS1);
     }
 
     private void changeDistance(){
-        x1+=1;
-        x2+=2;
-        x3+=3;
-        x4+=4;
+        x1+= speed_1;
+        x2+= speed_2;
+        x3+= speed_3;
+        x4+= speed_4;
     }
 
     private void getBackground() {
